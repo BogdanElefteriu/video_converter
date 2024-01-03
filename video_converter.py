@@ -2,7 +2,6 @@ import streamlit as st
 import shutil
 import io
 import os
-os.environ["IMAGEIO_FFMPEG_EXE"] = "/opt/homebrew/bin/ffmpeg"
 
 import moviepy.editor as moviepy
 
