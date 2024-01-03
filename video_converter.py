@@ -12,7 +12,6 @@ def convert_to_mp4(file_path):
     clip = moviepy.VideoFileClip(file_path)
     video_with_new_audio = clip.set_audio(moviepy.AudioFileClip(file_path)) 
     video_with_new_audio.write_videofile(f"{file_path.split('.')[0]}.mp4",
-                                        bitrate='8000k',
                                         ffmpeg_params=[
                                             '-tile-columns', '6', '-frame-parallel', '0',
                                             '-auto-alt-ref', '1', '-lag-in-frames', '25', '-g',
