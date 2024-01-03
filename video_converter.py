@@ -1,6 +1,4 @@
 import streamlit as st
-import shutil
-import io
 import os
 
 import moviepy.editor as moviepy
@@ -51,7 +49,6 @@ if file:
 
     if convert:
         st.session_state.convert = True
-        # g = io.BytesIO(file.getvalue())  ## BytesIO Object
     
         with open(temporary_location, 'wb') as out:  ## Open temporary file as bytes
             out.write(file.getbuffer())  ## Read bytes into file
