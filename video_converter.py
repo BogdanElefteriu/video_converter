@@ -2,6 +2,7 @@ import streamlit as st
 import shutil
 import io
 import os
+os.environ["IMAGEIO_FFMPEG_EXE"] = "/opt/homebrew/bin/ffmpeg"
 
 import moviepy.editor as moviepy
 
@@ -29,14 +30,17 @@ if not "download" in st.session_state:
 if not "convert" in st.session_state:
     st.session_state['convert'] = False
 
+if not "temporary_location" in st.session_state:
+    st.session_state['temporary_location'] = ''
+
 
 st.title("Conversie video la formatul MP4")
 
 
 file = st.file_uploader(label="Uploadeaza fisierul")
-temporary_location = "temp_conversion" + "." + file.name.split(".")[1]
 
 if file:
+    temporary_location = "temp_conversion" + "." + file.name.split(".")[1]
     st.write(f"Ai incarcat fisierul: {file.name}")
 
 
